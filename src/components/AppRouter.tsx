@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from "react-router";
 import { privateRoutes, publicRoutes, RouteNames } from "../router/intex";
 
 const AppRouter: FC = () => {
-  const auth = true;
+  const auth = false;
   return auth ? (
     <Switch>
       {privateRoutes.map((route) => {
