@@ -2,16 +2,17 @@ import { Menu, Row } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import React, { FC } from "react";
 import { useHistory } from "react-router";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import { RouteNames } from "../router/intex";
 
 const Navbbar: FC = () => {
   const router = useHistory();
-  const auth = true;
+  const { isAuth } = useTypedSelector((state) => state.auth);
 
   return (
     <Header>
       <Row justify="end">
-        {auth ? (
+        {isAuth ? (
           <>
             <div
               style={{

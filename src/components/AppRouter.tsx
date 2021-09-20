@@ -1,8 +1,11 @@
 import React, { FC } from "react";
 import { Redirect, Route, Switch } from "react-router";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import { privateRoutes, publicRoutes, RouteNames } from "../router/intex";
 
 const AppRouter: FC = () => {
+  const { isAuth } = useTypedSelector((state) => state.auth);
+
   const auth = false;
   return auth ? (
     <Switch>
