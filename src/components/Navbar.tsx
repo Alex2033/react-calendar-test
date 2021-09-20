@@ -2,12 +2,14 @@ import { Menu, Row } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import React, { FC } from "react";
 import { useHistory } from "react-router";
+import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { RouteNames } from "../router/intex";
 
-const Navbbar: FC = () => {
+const Navbar: FC = () => {
   const router = useHistory();
-  const { isAuth } = useTypedSelector((state) => state.auth);
+  const { isAuth, user } = useTypedSelector((state) => state.auth);
+  const { logout } = useActions();
 
   return (
     <Header>
@@ -19,7 +21,7 @@ const Navbbar: FC = () => {
                 color: "white",
               }}
             >
-              Ulbi TV
+              {user.username}
             </div>
             <Menu
               theme="dark"
@@ -27,7 +29,7 @@ const Navbbar: FC = () => {
               selectable={false}
               defaultSelectedKeys={["2"]}
             >
-              <Menu.Item onClick={() => console.log("Выйти")} key="1">
+              <Menu.Item onClick={() => logout()} key="1">
                 Выйти
               </Menu.Item>
             </Menu>
@@ -49,4 +51,4 @@ const Navbbar: FC = () => {
   );
 };
 
-export default Navbbar;
+export default Navbar;

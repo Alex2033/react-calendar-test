@@ -6,8 +6,7 @@ import { privateRoutes, publicRoutes, RouteNames } from "../router/intex";
 const AppRouter: FC = () => {
   const { isAuth } = useTypedSelector((state) => state.auth);
 
-  const auth = false;
-  return auth ? (
+  return isAuth ? (
     <Switch>
       {privateRoutes.map((route) => {
         return (
