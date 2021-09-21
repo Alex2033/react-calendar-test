@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import { useHistory } from "react-router";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
-import { RouteNames } from "../router/intex";
+import { RouteNames } from "../router";
 
 const Navbar: FC = () => {
   const router = useHistory();
